@@ -20,7 +20,7 @@ type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
 
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
-const Button: FC<BaseButtonProps> = (props) => {
+const Button: FC<ButtonProps> = (props) => {
   const { 
     btnType,
     className,
