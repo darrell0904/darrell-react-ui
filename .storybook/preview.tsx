@@ -19,7 +19,32 @@ addParameters({
   info: {
     inline: true,
     header: false,
+    text: `
+      u 杜对对的宿敌啊数据帝萨蒂萨东 i 啊
+  
+      ~~~js
+      <Button>的撒嗲司机嗲时间打死多级</Button>
+      ~~~
+    `,
     // propTablesExclude: [Fragment],
+    styles: stylesheet => {
+      console.log('----stylesheet---', stylesheet);
+      return ({
+        // Setting the style with a function
+        ...stylesheet,
+        infoBody: {
+          ...stylesheet.infoBody,
+          padding: '20px 40px 20px'
+        },
+        header: {
+          ...stylesheet.header,
+          h1: {
+            ...stylesheet.header.h1,
+            color: 'green',
+          },
+        },
+      });
+    },
   }
 });
 // addDecorator(storyWrapper);

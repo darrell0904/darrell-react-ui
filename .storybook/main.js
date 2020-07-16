@@ -30,7 +30,7 @@ module.exports = {
           options: {
             shouldExtractLiteralValuesFromEnum: true,
             propFilter: (prop) => {
-              console.log('---1----', prop);
+              // console.log('---1----', prop);
               if (prop.parent) {
                 // console.log("---!prop.parent.fileName.includes('node_modules')---", !prop.parent.fileName.includes('node_modules'));
                 return prop.parent.fileName.includes('node_modules');

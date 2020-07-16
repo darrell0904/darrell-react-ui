@@ -1576,10 +1576,10 @@
     react-inspector "^4.0.0"
     uuid "^3.3.2"
 
-"@storybook/addon-info@^5.2.8":
+"@storybook/addon-info@^5.3.19":
   version "5.3.19"
-  resolved "https://registry.npmjs.org/@storybook/addon-info/-/addon-info-5.3.19.tgz#175af53ba54ddb8fe24b3c979206ffbbf42bc4f4"
-  integrity sha512-MiFLcyoOmwawquagQHkqiPHnvBOKrVaS/wnO1XyBvIHwkK+KN7CZ9l7HakA4SO76kugrY9OJYyi5YvEEdN6vww==
+  resolved "https://registry.npm.taobao.org/@storybook/addon-info/download/@storybook/addon-info-5.3.19.tgz#175af53ba54ddb8fe24b3c979206ffbbf42bc4f4"
+  integrity sha1-F1r1O6VN24/iSzyXkgb/u/QrxPQ=
   dependencies:
     "@storybook/addons" "5.3.19"
     "@storybook/client-logger" "5.3.19"
