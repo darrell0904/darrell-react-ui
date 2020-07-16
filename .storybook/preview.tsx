@@ -1,60 +1,70 @@
 import { configure, addDecorator, addParameters } from '@storybook/react';
 import React, { Fragment } from 'react';
 import { withInfo } from '@storybook/addon-info';
-import "../src/styles/index.less";
+import "../src/styles/storybook.less";
 
 const wrapperStyle: React.CSSProperties = {
-  padding: '20px 40px'
+  padding: '20px 0px'
 }
 
-// const storyWrapper = (stroyFn: any) => (
-//   <div style={wrapperStyle}>
-//     <h3>组件演示</h3>
-//     {stroyFn()}
-//   </div>
-// )
+const storyWrapper = (stroyFn: any) => (
+  <div style={wrapperStyle}>
+    <h3>组件演示</h3>
+    {stroyFn()}
+  </div>
+)
+
+addDecorator(storyWrapper);
+
+const Red = props => <span style={{ color: 'red' }} {...props} />;
+
+const TableComponent = ({ propDefinitions }) => {
+  const props = propDefinitions.map(
+    ({ property, propType, required, description, defaultValue }) => {
+      return (
+        <tr key={property}>
+          <td>
+            {property}
+            {required ? <Red>*</Red> : null}
+          </td>
+          <td className={`${ propType.name ? 'info-table-monospace' : ''}`}>{propType.name}</td>
+          <td className={`${ propType.name ? 'info-table-monospace' : ''}`}>{defaultValue}</td>
+          <td className={`${ propType.name ? 'info-table-monospace' : ''}`}>{description}</td>
+        </tr>
+      );
+    }
+  );
+ 
+  return (
+    <table className="info-table">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>type</th>
+          <th>default</th>
+          <th>description</th>
+        </tr>
+      </thead>
+      <tbody>{props}</tbody>
+    </table>
+  );
+};
 
 addDecorator(withInfo);
 addParameters({
   info: {
     inline: true,
     header: false,
-    text: `
-      u 杜对对的宿敌啊数据帝萨蒂萨东 i 啊
-  
-      ~~~js
-      <Button>的撒嗲司机嗲时间打死多级</Button>
-      ~~~
-    `,
-    // propTablesExclude: [Fragment],
-    styles: stylesheet => {
-      console.log('----stylesheet---', stylesheet);
-      return ({
-        // Setting the style with a function
-        ...stylesheet,
-        infoBody: {
-          ...stylesheet.infoBody,
-          padding: '20px 40px 20px'
-        },
-        header: {
-          ...stylesheet.header,
-          h1: {
-            ...stylesheet.header.h1,
-            color: 'green',
-          },
-        },
-      });
-    },
+    // TableComponent,
   }
 });
-// addDecorator(storyWrapper);
 
-// const loaderFn = () => {
-//   const allExports = [require('../src/welcome.stories.tsx')];
-//   const req = require.context('../src/components', true, /\.stories\.tsx$/);
-//   req.keys().forEach(fname => allExports.push(req(fname)));
-//   return allExports;
-// };
+const loaderFn = () => {
+  const allExports = [require('../src/welcome.stories.tsx')];
+  const req = require.context('../src/components', true, /\.stories\.tsx$/);
+  req.keys().forEach(fname => allExports.push(req(fname)));
+  return allExports;
+};
 
 // automatically import all files ending in *.stories.js
-// configure(loaderFn, module);
+configure(loaderFn, module);

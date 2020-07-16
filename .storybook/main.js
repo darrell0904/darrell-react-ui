@@ -30,10 +30,9 @@ module.exports = {
           options: {
             shouldExtractLiteralValuesFromEnum: true,
             propFilter: (prop) => {
-              // console.log('---1----', prop);
+              console.log('----props---', prop);
               if (prop.parent) {
-                // console.log("---!prop.parent.fileName.includes('node_modules')---", !prop.parent.fileName.includes('node_modules'));
-                return prop.parent.fileName.includes('node_modules');
+                return !prop.parent.fileName.includes('node_modules');
               }
               return true;
             }
@@ -41,12 +40,15 @@ module.exports = {
         }
       ]
     });
+
     config.module.rules.push({
       test: /\.less$/,
       use: ['style-loader', 'css-loader', 'less-loader'],
       include: path.resolve(__dirname, '../src/'),
     });
+
     config.resolve.extensions.push(".ts", ".tsx");
+
     return config;
   },
 };
