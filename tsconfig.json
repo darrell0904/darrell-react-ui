@@ -20,7 +20,6 @@
     "jsx": "react",
     "rootDirs": ["src", "stories"],
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build", "scripts"]
 }

@@ -16,11 +16,11 @@ const storyWrapper = (stroyFn: any) => (
 
 addDecorator(storyWrapper);
 
-const Red = props => <span style={{ color: 'red' }} {...props} />;
+const Red = (props: any) => <span style={{ color: 'red' }} {...props} />;
 
-const TableComponent = ({ propDefinitions }) => {
+const TableComponent = ({ propDefinitions } : any) => {
   const props = propDefinitions.map(
-    ({ property, propType, required, description, defaultValue }) => {
+    ({ property, propType, required, description, defaultValue }: any) => {
       return (
         <tr key={property}>
           <td>
@@ -59,12 +59,12 @@ addParameters({
   }
 });
 
-const loaderFn = () => {
-  const allExports = [require('../src/welcome.stories.tsx')];
-  const req = require.context('../src/components', true, /\.stories\.tsx$/);
-  req.keys().forEach(fname => allExports.push(req(fname)));
-  return allExports;
-};
+// const loaderFn = () => {
+//   const allExports = [require('../src/welcome.stories.tsx')];
+//   const req = require.context('../src/components', true, /\.stories\.tsx$/);
+//   req.keys().forEach(fname => allExports.push(req(fname)));
+//   return allExports;
+// };
 
 // automatically import all files ending in *.stories.js
-configure(loaderFn, module);
+// configure(loaderFn, module);

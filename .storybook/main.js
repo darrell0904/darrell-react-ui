@@ -10,6 +10,9 @@ module.exports = {
         craOverrides: {
           fileLoaderExcludes: ['less'],
         },
+        tsLoaderOptions: {
+          configFile: path.resolve(__dirname, '../tsconfig.json'),
+        },
       },
     },
     '@storybook/addon-actions',
@@ -24,18 +27,19 @@ module.exports = {
           options: {
             presets: [['react-app', { flow: false, typescript: true }]],
           }
-        }, 
+        },
         {
           loader: require.resolve("react-docgen-typescript-loader"),
           options: {
             shouldExtractLiteralValuesFromEnum: true,
             propFilter: (prop) => {
-              console.log('----props---', prop);
               if (prop.parent) {
+                console.log('------prop', prop);
+                console.log('--------', prop.parent.fileName.includes('node_modules'));
                 return !prop.parent.fileName.includes('node_modules');
               }
               return true;
-            }
+            },
           }
         }
       ]
