@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { Button } from './components';
+import { Button, Menu } from './components';
 
+const MenuItem = Menu.Item;
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,6 +12,19 @@ ReactDOM.render(
     <Button btnType="primary"> primary button </Button>
     <Button btnType="danger"> danger button </Button>
     <Button btnType="link" href="https://google.com"> link button </Button>
+
+    <Menu>
+      <MenuItem>
+        active
+      </MenuItem>
+      <MenuItem disabled>
+        disabled
+      </MenuItem>
+      <MenuItem>
+        xyz
+      </MenuItem>
+    </Menu>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
