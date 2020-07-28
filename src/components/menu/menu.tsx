@@ -2,6 +2,8 @@ import React, { FC, useState, createContext, CSSProperties } from 'react';
 import classNames from 'classnames';
 import { MenuItemProps } from './menuItem'
 
+import './menu.less';
+
 type MenuMode = 'horizontal' | 'vertical'
 
 export interface MenuProps {
@@ -54,7 +56,7 @@ export const Menu: FC<MenuProps> = (props) => {
     defaultOpenSubMenus,
   }
 
-  const classes = classNames('viking-menu', className, {
+  const classes = classNames('darrell-menu', className, {
     'menu-vertical': mode === 'vertical',
     'menu-horizontal': mode !== 'vertical',
   });

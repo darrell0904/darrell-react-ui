@@ -13,7 +13,7 @@ ReactDOM.render(
     <Button btnType="danger"> danger button </Button>
     <Button btnType="link" href="https://google.com"> link button </Button>
 
-    <Menu>
+    <Menu mode="vertical">
       <MenuItem>
         active
       </MenuItem>
