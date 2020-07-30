@@ -4,6 +4,7 @@ import './index.css';
 import { Button, Menu } from './components';
 
 const MenuItem = Menu.Item;
+const SubMenu = Menu.SubMenu;
 
 ReactDOM.render(
   <React.StrictMode>
@@ -23,6 +24,16 @@ ReactDOM.render(
       <MenuItem>
         xyz
       </MenuItem>
+      <SubMenu title="dropdown">
+        <MenuItem>
+          drop1
+        </MenuItem>
+      </SubMenu>
+      <SubMenu title="opened">
+        <MenuItem>
+          opened1
+        </MenuItem>
+      </SubMenu>
     </Menu>
 
   </React.StrictMode>,
